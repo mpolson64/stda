@@ -1,60 +1,51 @@
-
 <!DOCTYPE html>
 <html>
-
-<title>Self Titled Debut Album</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-body,h1 {font-family: "Raleway", sans-serif}
-body, html {height: 100%}
-.bgimg {
+  <title>Self Titled Debut Album</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <style>
+    body,h1 {font-family: "Raleway", sans-serif}
+    body, html {height: 100%}
+    .bgimg {
     min-height: 100%;
     background-position: center;
     background-size: cover;
-}
-</style>
-
-<body>
-
-<div class="bgimg w3-display-container w3-text-black">
-  <div class="w3-display-middle">
-    <h1 class="w3-jumbo" id="message">LOADING</h1>
-    <hr class="w3-border-grey" style="margin:auto;width:40%">
-    <a class="w3-large w3-center" href="index.html">Reload</a>
-  </div>
-  <div class="w3-display-bottomleft w3-padding-large">
-    Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
-  </div>
-</div>
-
-<script>
-    function createCORSRequest(method, url) {
-	  var xhr = new XMLHttpRequest();
-	  if ("withCredentials" in xhr) {
-		// XHR for Chrome/Firefox/Opera/Safari.
-		xhr.open(method, url, false);
-	  } else if (typeof XDomainRequest != "undefined") {
-		// XDomainRequest for IE.
-		xhr = new XDomainRequest();
-		xhr.open(method, url);
-	  } else {
-		// CORS not supported.
-		xhr = null;
-	  }
-	  return xhr;
-	}
-	
-	var xhr = createCORSRequest('GET', "https://self-titled-debut-album-api.herokuapp.com/full");
-	
-	xhr.send(null);
-		
-    var response = JSON.parse(xhr.response);
-
-document.getElementById("message").innerHTML = response.message;
-</script> 
-
-</body>
+    }
+  </style>
+  <body>
+    <div class="bgimg w3-display-container w3-text-black">
+      <div class="w3-display-middle">
+        <h1 class="w3-jumbo" id="message">LOADING</h1>
+        <hr class="w3-border-grey" style="margin:auto;width:40%">
+        <a class="w3-large w3-center" href="index.html">Reload</a>
+      </div>
+    </div>
+    <script>
+      function createCORSRequest(method, url) {
+      var xhr = new XMLHttpRequest();
+      if ("withCredentials" in xhr) {
+      // XHR for Chrome/Firefox/Opera/Safari.
+      xhr.open(method, url, false);
+      } else if (typeof XDomainRequest != "undefined") {
+      // XDomainRequest for IE.
+      xhr = new XDomainRequest();
+      xhr.open(method, url);
+      } else {
+      // CORS not supported.
+      xhr = null;
+      }
+      return xhr;
+      }
+      
+      var xhr = createCORSRequest('GET', "https://self-titled-debut-album-api.herokuapp.com/full");
+      
+      xhr.send(null);
+      
+      var response = JSON.parse(xhr.response);
+      
+      document.getElementById("message").innerHTML = response.message;
+    </script> 
+  </body>
 </html>
