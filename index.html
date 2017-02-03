@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Self Titled Debut Album</title>
+</head>
+
+<body>
+
+<p id="message"></p>
+
+<script>
+    function createCORSRequest(method, url) {
+	  var xhr = new XMLHttpRequest();
+	  if ("withCredentials" in xhr) {
+		// XHR for Chrome/Firefox/Opera/Safari.
+		xhr.open(method, url, false);
+	  } else if (typeof XDomainRequest != "undefined") {
+		// XDomainRequest for IE.
+		xhr = new XDomainRequest();
+		xhr.open(method, url);
+	  } else {
+		// CORS not supported.
+		xhr = null;
+	  }
+	  return xhr;
+	}
+	
+	var xhr = createCORSRequest('GET', "https://self-titled-debut-album-api.herokuapp.com/full");
+	
+	xhr.send(null);
+		
+    var response = JSON.parse(xhr.response);
+
+document.getElementById("message").innerHTML = response.message;
+</script> 
+
+</body>
+</html>
