@@ -1,51 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <title>Self Titled Debut Album</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <style>
-    body,h1 {font-family: "Raleway", sans-serif}
-    body, html {height: 100%}
-    .bgimg {
+<title>Self Titled Debut Album</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body,
+  h1 {
+    font-family: "Raleway", sans-serif
+  }
+  body,
+  html {
+    height: 100%
+  }
+  .bgimg {
     min-height: 100%;
     background-position: center;
     background-size: cover;
-    }
-  </style>
-  <body>
-    <div class="bgimg w3-display-container w3-text-black">
-      <div class="w3-display-middle">
-        <h1 class="w3-jumbo" id="message">LOADING</h1>
-        <hr class="w3-border-grey" style="margin:auto;width:40%">
-        <a class="w3-large w3-center" href="index.html">Reload</a>
-      </div>
+  }
+</style>
+
+<body>
+  <div class="bgimg w3-display-container w3-text-black">
+    <div class="w3-display-middle">
+      <h1 class="w3-jumbo" id="message">LOADING</h1>
+      <hr class="w3-border-grey" style="margin:auto;width:40%">
+      <a class="w3-large w3-center" href="index.html">Reload</a>
+      <a class="btn" href="https://github.com/mpolson64/stda">
+        <i class="fa fa-github w3-display-bottomright" style="font-size:36px"></i>
+      </a>
     </div>
-    <script>
-      function createCORSRequest(method, url) {
+  </div>
+
+  <script>
+    function createCORSRequest(method, url) {
       var xhr = new XMLHttpRequest();
       if ("withCredentials" in xhr) {
-      // XHR for Chrome/Firefox/Opera/Safari.
-      xhr.open(method, url, false);
+        // XHR for Chrome/Firefox/Opera/Safari.
+        xhr.open(method, url, false);
       } else if (typeof XDomainRequest != "undefined") {
-      // XDomainRequest for IE.
-      xhr = new XDomainRequest();
-      xhr.open(method, url);
+        // XDomainRequest for IE.
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
       } else {
-      // CORS not supported.
-      xhr = null;
+        // CORS not supported.
+        xhr = null;
       }
       return xhr;
-      }
-      
-      var xhr = createCORSRequest('GET', "https://self-titled-debut-album-api.herokuapp.com/full");
-      
-      xhr.send(null);
-      
-      var response = JSON.parse(xhr.response);
-      
-      document.getElementById("message").innerHTML = response.message;
-    </script> 
-  </body>
+    }
+
+    var xhr = createCORSRequest('GET', "https://self-titled-debut-album-api.herokuapp.com/full");
+
+    xhr.send(null);
+
+    var response = JSON.parse(xhr.response);
+
+    document.getElementById("message").innerHTML = response.message;
+  </script>
+</body>
+
 </html>
